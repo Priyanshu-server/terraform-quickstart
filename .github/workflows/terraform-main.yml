@@ -1,0 +1,42 @@
+name: Terraform Validation (Main Branch)
+
+# ✅ Trigger only when main branch is pushed
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  terraform:
+    name: Terraform Checks
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout repo
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Setup Terraform
+      - name: Set up Terraform
+        uses: hashicorp/setup-terraform@v3
+        with:
+          terraform_version: 1.9.7
+
+      # Initialize Terraform
+      - name: Terraform Init
+        run: terraform init -input=false
+
+      # Check code formatting
+      - name: Terraform Format Check
+        run: terraform fmt -check
+
+      # Validate syntax
+      - name: Terraform Validate
+        run: terraform validate
+
+      # Dry-run plan (optional safety)
+      - name: Terraform Plan (dry run)
+        run: terraform plan -input=false
