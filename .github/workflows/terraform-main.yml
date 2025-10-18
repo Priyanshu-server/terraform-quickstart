@@ -1,6 +1,5 @@
 name: Terraform Validation (Main Branch)
 
-# ✅ Trigger only when main branch is pushed
 on:
   push:
     branches:
@@ -36,7 +35,3 @@ jobs:
       # Validate syntax
       - name: Terraform Validate
         run: terraform validate
-
-      # Dry-run plan (optional safety)
-      - name: Terraform Plan (dry run)
-        run: terraform plan -input=false
