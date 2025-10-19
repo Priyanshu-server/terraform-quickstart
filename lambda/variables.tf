@@ -8,8 +8,8 @@ variable "main_config" {
 ## Lambda Vars
 variable "lambda_config" {
   type = object({
-    lambda_runtime  = string
-    lambda_role_arn = string
+    lambda_runtime   = string
+    lambda_role_arn  = string
     lambda_s3_bucket = string
   })
 }

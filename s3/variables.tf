@@ -6,7 +6,7 @@ variable "main_config" {
 }
 
 variable "s3_config" {
-    type = object({
-      lambda_bucket = string
-    })
+  type = object({
+    lambda_bucket = string
+  })
 }
