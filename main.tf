@@ -14,17 +14,17 @@ provider "aws" {
 }
 
 module "iam" {
-  source = "./iam"
+  source      = "./iam"
   main_config = var.main_config
 }
 
 module "lambda" {
-  source = "./lambda"
-  main_config =  var.main_config
+  source      = "./lambda"
+  main_config = var.main_config
   lambda_config = merge(
-  {
+    {
       lambda_role_arn = module.iam.lambda_role_arn
     },
     var.lambda_config
-    )
+  )
 }
