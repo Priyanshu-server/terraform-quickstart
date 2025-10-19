@@ -13,3 +13,8 @@ resource "aws_iam_role_policy_attachment" "lambda_basic_exec" {
   role       = aws_iam_role.iam_lambda_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
+
+resource "aws_iam_role_policy_attachment" "lambda_s3_access_attach" {
+  role       = aws_iam_role.iam_lambda_role.name
+  policy_arn = aws_iam_policy.lambda_s3_access.arn
+}

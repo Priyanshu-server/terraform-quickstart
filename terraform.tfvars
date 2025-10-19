@@ -9,3 +9,7 @@ main_config = {
 lambda_config = {
   lambda_runtime : "python3.9"
 }
+
+s3_config = {
+  lambda_bucket : "lambda-bucket-1289a27"
+}

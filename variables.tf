@@ -10,3 +10,9 @@ variable "lambda_config" {
     lambda_runtime = string
   })
 }
+
+variable "s3_config" {
+  type = object({
+    lambda_bucket = string
+  })
+}
