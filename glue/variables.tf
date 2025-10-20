@@ -1,3 +1,5 @@
+
+
 variable "main_config" {
   type = object({
     region = string
@@ -5,22 +7,11 @@ variable "main_config" {
   })
 }
 
-variable "lambda_config" {
-  type = object({
-    lambda_runtime = string
-  })
-}
-
-variable "s3_config" {
-  type = object({
-    lambda_bucket = string
-    glue_bucket   = string
-  })
-}
-
 variable "glue_config" {
   type = object({
     glue_python_runtime = string
+    glue_role_arn       = string
+    glue_s3_bucket      = string
     glue_temp_dir       = string
     log_vars = object({
       log_group_path : string
