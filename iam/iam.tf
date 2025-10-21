@@ -34,6 +34,8 @@ resource "aws_iam_role" "iam_glue_role" {
   )
 }
 
+## Glue Policy roles attachment
+
 resource "aws_iam_role_policy_attachment" "glue_basic_exec" {
   role       = aws_iam_role.iam_glue_role.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
@@ -44,12 +46,7 @@ resource "aws_iam_role_policy_attachment" "glue_cloudwatch_access" {
   policy_arn = "arn:aws:iam::aws:policy/CloudWatchLogsFullAccess"
 }
 
-resource "aws_iam_role_policy_attachment" "glue_console_acces" {
-  role       = aws_iam_role.iam_glue_role.name
-  policy_arn = "arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess"
-}
-
 resource "aws_iam_role_policy_attachment" "attach_glue_logs_and_s3_policy" {
   role       = aws_iam_role.iam_glue_role.name
-  policy_arn = aws_iam_policy.glue_logs_and_s3_policy.arn
+  policy_arn = aws_iam_policy.glue_s3_access_policy.arn
 }
