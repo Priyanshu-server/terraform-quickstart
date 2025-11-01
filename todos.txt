@@ -1,0 +1,2 @@
+- Add random in cloudwatch naming
+- Add randomness in bucket naming
