@@ -31,6 +31,7 @@ resource "aws_iam_policy" "lambda_s3_access" {
   policy      = data.aws_iam_policy_document.lambda_s3_access.json
 }
 
+
 # Glue Assume Role Policy
 
 data "aws_iam_policy_document" "glue_assume_role_policy" {

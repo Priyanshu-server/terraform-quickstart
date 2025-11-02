@@ -13,3 +13,10 @@ variable "lambda_config" {
     lambda_s3_bucket = string
   })
 }
+
+variable "basic_networking_config" {
+  type = object({
+    subnet_ids = list(string),
+    sg_ids   = list(string) 
+  })
+}

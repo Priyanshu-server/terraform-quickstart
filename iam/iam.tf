@@ -21,6 +21,11 @@ resource "aws_iam_role_policy_attachment" "lambda_s3_access_attach" {
   policy_arn = aws_iam_policy.lambda_s3_access.arn
 }
 
+resource "aws_iam_role_policy_attachment" "lambda_vpc_access" {
+  role       = aws_iam_role.iam_lambda_role.name
+  policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
+}
+
 # Glue Role
 
 resource "aws_iam_role" "iam_glue_role" {

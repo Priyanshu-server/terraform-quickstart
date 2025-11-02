@@ -6,6 +6,38 @@ main_config = {
   }
 }
 
+# Networking module variables >>>
+
+basic_sg_config = {
+  sg_name        = "web-sg"
+  sg_description = "Security group for web/public access"
+
+  ingress = {
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress = {
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+basic_internet_config = {
+  igw_name = "main-igw"
+
+  router = {
+    rt_name              = "public-route-table"
+    internet_route_cidr  = "0.0.0.0/0"
+  }
+}
+
+# <<< Networking module variables
+
 lambda_config = {
   lambda_runtime : "python3.9"
 }
