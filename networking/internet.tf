@@ -1,18 +1,18 @@
 
 resource "aws_internet_gateway" "main_igw" {
   vpc_id = aws_vpc.main.id
-  tags   = merge(
-            var.main_config.tags,
-            { Name = var.basic_internet_config.igw_name }
-            )
+  tags = merge(
+    var.main_config.tags,
+    { Name = var.basic_internet_config.igw_name }
+  )
 }
 
 resource "aws_route_table" "main_rt" {
   vpc_id = aws_vpc.main.id
-  tags   = merge(
-            var.main_config.tags,
-            { Name =  var.basic_internet_config.router.rt_name }
-            )
+  tags = merge(
+    var.main_config.tags,
+    { Name = var.basic_internet_config.router.rt_name }
+  )
 }
 
 # Default internet route is usually constant → keep in var for global control

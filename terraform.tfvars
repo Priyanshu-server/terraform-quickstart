@@ -31,8 +31,8 @@ basic_internet_config = {
   igw_name = "main-igw"
 
   router = {
-    rt_name              = "public-route-table"
-    internet_route_cidr  = "0.0.0.0/0"
+    rt_name             = "public-route-table"
+    internet_route_cidr = "0.0.0.0/0"
   }
 }
 

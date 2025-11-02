@@ -17,6 +17,6 @@ variable "lambda_config" {
 variable "basic_networking_config" {
   type = object({
     subnet_ids = list(string),
-    sg_ids   = list(string) 
+    sg_ids     = list(string)
   })
 }

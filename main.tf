@@ -28,9 +28,9 @@ module "s3" {
 }
 
 module "networking" {
-  source      = "./networking"
-  main_config = var.main_config
-  basic_sg_config = var.basic_sg_config
+  source                = "./networking"
+  main_config           = var.main_config
+  basic_sg_config       = var.basic_sg_config
   basic_internet_config = var.basic_internet_config
 }
 
@@ -45,8 +45,8 @@ module "lambda" {
     var.lambda_config
   )
   basic_networking_config = {
-    subnet_ids         = [module.networking.subnet_id],
-    sg_ids            = [module.networking.security_group_id],
+    subnet_ids = [module.networking.subnet_id],
+    sg_ids     = [module.networking.security_group_id],
   }
   depends_on = [module.iam, module.s3]
 }

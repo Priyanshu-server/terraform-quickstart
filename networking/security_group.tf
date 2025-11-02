@@ -4,11 +4,11 @@ resource "aws_security_group" "main_sg" {
   name        = var.basic_sg_config.sg_name
   description = var.basic_sg_config.sg_description
   vpc_id      = aws_vpc.main.id
-  tags        = merge(
-                var.main_config.tags,
-                {
-                Name = var.basic_sg_config.sg_name
-                }) 
+  tags = merge(
+    var.main_config.tags,
+    {
+      Name = var.basic_sg_config.sg_name
+  })
 }
 
 # Ingress policy is usually same pattern → keep in vars
